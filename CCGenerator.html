@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css" />
+  <title>A CC Generator using Bin's</title>
+</head>
+
+<body>
+  <div class="BinFormContainer">
+    <h1>CC Generator</h1>
+    <div class="form-group">
+      <label for="bin">BIN (First 6 Digits):</label>
+      <input type="text" id="bin" placeholder="Enter BIN (e.g., 123456)" />
+    </div>
+    <div class="form-group">
+      <label for="format">Output Format:</label>
+      <select id="format">
+        <option value="pipes">Pipes (|)</option>
+        <option value="csv">CSV</option>
+        <option value="sql">SQL</option>
+        <option value="json">JSON</option>
+        <option value="xml">XML</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="expiry-month">Expiry Month:</label>
+      <select id="expiry-month">
+        <option value="random">Random</option>
+        <option value="01">01 - January</option>
+        <option value="02">02 - February</option>
+        <option value="03">03 - March</option>
+        <option value="04">04 - April</option>
+        <option value="05">05 - May</option>
+        <option value="06">06 - June</option>
+        <option value="07">07 - July</option>
+        <option value="08">08 - August</option>
+        <option value="09">09 - September</option>
+        <option value="10">10 - October</option>
+        <option value="11">11 - November</option>
+        <option value="12">12 - December</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="expiry-year">Expiry Year:</label>
+      <select id="expiry-year">
+        <option value="random">Random</option>
+        <option value="2024">2024</option>
+        <option value="2025">2025</option>
+        <option value="2026">2026</option>
+        <option value="2027">2027</option>
+        <option value="2028">2028</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="ccv">CCV:</label>
+      <input type="text" id="ccv" placeholder="Enter CCV or leave blank for random" />
+    </div>
+    <div class="form-group">
+      <label for="quantity">Quantity:</label>
+      <select id="quantity" onchange="handleQuantityChange()">
+        <option value="1">1</option>
+        <option value="5">5</option>
+        <option value="10">10</option>
+        <option value="custom">Custom</option>
+      </select>
+      <div id="custom-quantity">
+        <input type="number" id="custom-quantity-input" placeholder="Enter custom quantity" />
+      </div>
+    </div>
+    <button onclick="generate()">Generate Cards</button>
+    <div class="form-group">
+      <h2>Generated Cards</h2>
+      <div id="result"></div>
+      <button onclick="copyToClipboard()">Copy to Clipboard</button>
+      <div id="copy-status"></div>
+    </div>
+  </div>
+</body>
+
+</html>
